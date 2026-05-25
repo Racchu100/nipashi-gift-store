@@ -149,7 +149,7 @@ export default function Home() {
               </div>
 
               {/* Main Premium Card */}
-              <div className="w-full h-full bg-white rounded-3xl shadow-brand-lg border border-border-brand/35 p-6 flex flex-col justify-between relative z-20 hover:rotate-1 transition-transform duration-300">
+              <div className="w-full h-full bg-white rounded-3xl shadow-brand-lg border border-border-brand/35 p-3 flex flex-col justify-between relative z-20 hover:rotate-1 transition-transform duration-300">
                 <div className="w-full h-2/3 rounded-2xl overflow-hidden relative shadow-inner group aspect-square">
                   <AnimatePresence mode="wait">
                     <motion.div
