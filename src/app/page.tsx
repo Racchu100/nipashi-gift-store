@@ -1,7 +1,9 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Gift,
   ArrowRight,
@@ -15,6 +17,23 @@ import {
 } from "lucide-react";
 
 export default function Home() {
+  const heroImages = [
+    "/images/611654_customized-multiple-photo-frame-collage16600.jpg",
+    "/images/12.jpg",
+    "/images/81a3Bu+uYEL._SX679_.jpg",
+    "/images/b0367e9f96f842f4bf66a50c2f01cee6.jpg",
+    "/images/0d9304b8bb7d9e2163676514078f6c92.jpg.jpeg",
+    "/images/1d794502d72043c0a02d6966443ef2ba.jpg",
+  ];
+
+  const [carouselIndex, setCarouselIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCarouselIndex((prev) => (prev + 1) % heroImages.length);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, []);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -180,9 +199,26 @@ export default function Home() {
 
               {/* Main Premium Card */}
               <div className="w-full h-full bg-white rounded-3xl shadow-brand-lg border border-border-brand/35 p-6 flex flex-col justify-between relative z-20 hover:rotate-1 transition-transform duration-300">
-                <div className="w-full h-2/3 rounded-2xl bg-gradient-to-br from-yellow-light via-yellow to-red-light flex items-center justify-center text-8xl shadow-inner relative overflow-hidden group">
-                  <span className="relative z-10 transition-transform duration-300 group-hover:scale-110">🎁</span>
-                  <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                <div className="w-full h-2/3 rounded-2xl overflow-hidden relative shadow-inner group aspect-square">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={carouselIndex}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      transition={{ duration: 0.5 }}
+                      className="absolute inset-0 w-full h-full"
+                    >
+                      <Image
+                        src={heroImages[carouselIndex]}
+                        alt="Product Showcase"
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        priority
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark/10 to-transparent pointer-events-none" />
                 </div>
                 <div className="pt-5 space-y-1">
                   <h3 className="font-playfair text-xl font-bold text-dark">
