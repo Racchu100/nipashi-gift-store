@@ -123,70 +123,24 @@ export default function Home() {
         <div className="absolute top-[-100px] right-[-100px] w-[500px] h-[500px] rounded-full bg-red/10 blur-3xl pointer-events-none" />
         <div className="absolute bottom-[-80px] left-[15%] w-[350px] h-[350px] rounded-full bg-white/20 blur-2xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 items-center relative z-10">
+        <div className="max-w-4xl mx-auto w-full flex flex-col items-center gap-8 relative z-10 text-center px-4">
           
-          {/* HERO CONTENT */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="space-y-6 text-center md:text-left"
-          >
-            <div className="inline-flex items-center gap-2 bg-red text-white text-[11px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full shadow-sm">
-              <Star className="w-3.5 h-3.5 fill-current" />
-              Mangaluru's Favourite Gift Store
-            </div>
-            <h1 className="font-playfair text-[20px] xs:text-[22px] sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-dark whitespace-nowrap">
-              Give Gifts That <span className="font-dancing text-red italic">Touch Hearts</span>
-            </h1>
-            <p className="text-xs sm:text-sm font-bold tracking-[0.06em] text-text-muted uppercase max-w-md mx-auto md:mx-0">
-              Coz Your Loved Ones Deserve the Best
-            </p>
-            
-            <div className="flex flex-row flex-wrap gap-2.5 justify-center md:justify-start pt-2">
-              <Link
-                href="/products"
-                className="inline-flex items-center justify-center gap-1.5 bg-red hover:bg-red-dark text-white font-bold px-4 py-2.5 sm:px-8 sm:py-4 text-xs sm:text-base rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
-              >
-                Explore Collection <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-              <a
-                href="https://wa.me/919900110344?text=Hi%20Nipashi!%20I'd%20like%20to%20customize%20a%20gift."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 bg-transparent hover:bg-dark text-dark hover:text-yellow font-bold px-4 py-2.5 sm:px-8 sm:py-4 text-xs sm:text-base border-2 border-dark rounded-full transition-all duration-300 hover:-translate-y-0.5"
-              >
-                Customize via WhatsApp
-              </a>
-            </div>
+          {/* Top Star Badge */}
+          <div className="inline-flex items-center gap-2 bg-red text-white text-[11px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full shadow-sm">
+            <Star className="w-3.5 h-3.5 fill-current" />
+            Mangaluru's Favourite Gift Store
+          </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-10 border-t border-dark/10 max-w-md mx-auto md:mx-0 text-center">
-              <div>
-                <div className="font-playfair text-3xl md:text-4xl font-black text-red">500+</div>
-                <div className="text-[10px] md:text-xs font-bold text-text-muted uppercase tracking-wider mt-1">Happy Customers</div>
-              </div>
-              <div>
-                <div className="font-playfair text-3xl md:text-4xl font-black text-red">20+</div>
-                <div className="text-[10px] md:text-xs font-bold text-text-muted uppercase tracking-wider mt-1">Gift Categories</div>
-              </div>
-              <div>
-                <div className="font-playfair text-3xl md:text-4xl font-black text-red">100%</div>
-                <div className="text-[10px] md:text-xs font-bold text-text-muted uppercase tracking-wider mt-1">Personalized</div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* HERO VISUALSTACK */}
+          {/* Centered Wide Product Visual Card Carousel */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex items-center justify-center relative mt-8 md:mt-0"
+            transition={{ duration: 0.6 }}
+            className="w-full flex justify-center relative mt-4"
           >
-            <div className="relative w-full max-w-[360px] aspect-square">
+            <div className="relative w-full max-w-[480px] aspect-square">
               {/* Floating Badge Left */}
-              <div className="absolute top-[-10px] left-[-30px] z-30 bg-white border border-border-brand/40 shadow-brand rounded-2xl p-3.5 flex items-center gap-3 animate-float">
+              <div className="absolute top-[-10px] left-[-20px] z-30 bg-white border border-border-brand/40 shadow-brand rounded-2xl p-3.5 flex items-center gap-3 animate-float">
                 <div className="w-9 h-9 rounded-full bg-yellow-light flex items-center justify-center text-lg">🎂</div>
                 <div>
                   <div className="text-[10px] font-bold text-text-muted uppercase tracking-wider leading-none">Best Seller</div>
@@ -217,18 +171,18 @@ export default function Home() {
                   </AnimatePresence>
                   <div className="absolute inset-0 bg-gradient-to-t from-dark/10 to-transparent pointer-events-none" />
                 </div>
-                <div className="pt-5 space-y-1">
+                <div className="pt-5 space-y-1 text-left">
                   <h3 className="font-playfair text-xl font-bold text-dark">
                     Custom Gift Collections
                   </h3>
                   <p className="text-xs text-text-muted">
-                    Keychains • Frames • Mugs • Cushions • Lamps
+                    Keychains • Frames • Mugs • Cushions • Lamps • Name Boards • Calendars
                   </p>
                 </div>
               </div>
 
               {/* Floating Badge Right */}
-              <div className="absolute bottom-[-15px] right-[-20px] z-30 bg-white border border-border-brand/40 shadow-brand rounded-2xl p-3.5 flex items-center gap-3 animate-float" style={{ animationDelay: "1.5s" }}>
+              <div className="absolute bottom-[-15px] right-[-15px] z-30 bg-white border border-border-brand/40 shadow-brand rounded-2xl p-3.5 flex items-center gap-3 animate-float" style={{ animationDelay: "1.5s" }}>
                 <div className="w-9 h-9 rounded-full bg-red-light flex items-center justify-center text-lg">⭐</div>
                 <div>
                   <div className="text-[10px] font-bold text-text-muted uppercase tracking-wider leading-none">Rating</div>
@@ -237,6 +191,24 @@ export default function Home() {
               </div>
             </div>
           </motion.div>
+
+          {/* Stats in One Row */}
+          <div className="w-full max-w-lg border-t border-dark/10 pt-8 mt-4">
+            <div className="grid grid-cols-3 gap-4 text-center">
+              <div>
+                <div className="font-playfair text-2xl sm:text-4xl font-black text-red">500+</div>
+                <div className="text-[9px] sm:text-xs font-bold text-text-muted uppercase tracking-wider mt-1 leading-none">Happy Customers</div>
+              </div>
+              <div>
+                <div className="font-playfair text-2xl sm:text-4xl font-black text-red">20+</div>
+                <div className="text-[9px] sm:text-xs font-bold text-text-muted uppercase tracking-wider mt-1 leading-none">Gift Categories</div>
+              </div>
+              <div>
+                <div className="font-playfair text-2xl sm:text-4xl font-black text-red">100%</div>
+                <div className="text-[9px] sm:text-xs font-bold text-text-muted uppercase tracking-wider mt-1 leading-none">Personalized</div>
+              </div>
+            </div>
+          </div>
 
         </div>
       </section>
