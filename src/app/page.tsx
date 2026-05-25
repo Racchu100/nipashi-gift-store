@@ -136,28 +136,25 @@ export default function Home() {
               <Star className="w-3.5 h-3.5 fill-current" />
               Mangaluru's Favourite Gift Store
             </div>
-            <h1 className="font-playfair text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-tight text-dark">
-              Give Gifts That <br />
-              <span className="font-dancing text-red italic text-5xl sm:text-6xl lg:text-8xl inline-block mt-2">
-                Touch Hearts
-              </span>
+            <h1 className="font-playfair text-[20px] xs:text-[22px] sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-dark whitespace-nowrap">
+              Give Gifts That <span className="font-dancing text-red italic">Touch Hearts</span>
             </h1>
-            <p className="text-sm sm:text-base font-bold tracking-[0.06em] text-text-muted uppercase max-w-md mx-auto md:mx-0">
+            <p className="text-xs sm:text-sm font-bold tracking-[0.06em] text-text-muted uppercase max-w-md mx-auto md:mx-0">
               Coz Your Loved Ones Deserve the Best
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
+            <div className="flex flex-row flex-wrap gap-2.5 justify-center md:justify-start pt-2">
               <Link
                 href="/products"
-                className="inline-flex items-center justify-center gap-2 bg-red hover:bg-red-dark text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-1.5 bg-red hover:bg-red-dark text-white font-bold px-4 py-2.5 sm:px-8 sm:py-4 text-xs sm:text-base rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
               >
-                Explore Collection <ArrowRight className="w-4 h-4" />
+                Explore Collection <ArrowRight className="w-3.5 h-3.5" />
               </Link>
               <a
                 href="https://wa.me/919900110344?text=Hi%20Nipashi!%20I'd%20like%20to%20customize%20a%20gift."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-transparent hover:bg-dark text-dark hover:text-yellow font-bold px-8 py-4 border-2 border-dark rounded-full transition-all duration-300 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-1.5 bg-transparent hover:bg-dark text-dark hover:text-yellow font-bold px-4 py-2.5 sm:px-8 sm:py-4 text-xs sm:text-base border-2 border-dark rounded-full transition-all duration-300 hover:-translate-y-0.5"
               >
                 Customize via WhatsApp
               </a>
