@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #FFFDF5;
+  --foreground: #2C1810;
+  
+  --yellow: #F5C518;
+  --yellow-dark: #D4A017;
+  --yellow-light: #FFF5CC;
+  --red: #C0392B;
+  --red-dark: #922B21;
+  --red-light: #FADBD8;
+  --dark: #1A1208;
+  --text: #2C1810;
+  --text-muted: #7D5A3C;
+  --white: #FFFFFF;
+  --off-white: #FFFDF5;
+  --bg-light: #FFFEF0;
+  --border: rgba(192,57,43,0.15);
+  
+  --shadow: 0 4px 24px rgba(192,57,43,0.10);
+  --shadow-lg: 0 12px 48px rgba(26,18,8,0.15);
+}
+
+@theme {
+  --color-yellow: var(--yellow);
+  --color-yellow-dark: var(--yellow-dark);
+  --color-yellow-light: var(--yellow-light);
+  --color-red: var(--red);
+  --color-red-dark: var(--red-dark);
+  --color-red-light: var(--red-light);
+  --color-dark: var(--dark);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-white: var(--white);
+  --color-off-white: var(--off-white);
+  --color-bg-light: var(--bg-light);
+  --color-border-brand: var(--border);
+  
+  --shadow-brand: var(--shadow);
+  --shadow-brand-lg: var(--shadow-lg);
+  
+  --font-dancing: 'Dancing Script', cursive;
+  --font-playfair: 'Playfair Display', serif;
+  --font-sans: 'DM Sans', sans-serif;
+  
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-pulse-wa: pulse-wa 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-wa {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); }
+  50% { box-shadow: 0 4px 32px rgba(37,211,102,0.75), 0 0 0 12px rgba(37,211,102,0.08); }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--off-white);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism custom styling */
+.glass-nav {
+  background: rgba(255, 253, 245, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-gradient {
+  background: var(--yellow);
+}
