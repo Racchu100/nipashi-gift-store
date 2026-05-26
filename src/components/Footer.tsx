@@ -120,7 +120,6 @@ export default function Footer() {
               { name: "Home", href: "/" },
               { name: "About Us", href: "/#why-us" },
               { name: "How It Works", href: "/#how-it-works" },
-              { name: "Reviews", href: "/#testimonials" },
               { name: "Find Us", href: "/#location" },
               {
                 name: "Order on WhatsApp",

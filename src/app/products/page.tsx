@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, Star, ArrowLeft, Heart, ChevronLeft, ChevronRight, HelpCircle } from "lucide-react";
+import { MessageCircle, Star, ArrowLeft, Heart, ChevronLeft, ChevronRight, HelpCircle, Filter } from "lucide-react";
 
 interface ProductCat {
   id: string;
@@ -115,6 +115,7 @@ function ProductsContent() {
   
   const [activeSubProduct, setActiveSubProduct] = useState<number>(0);
   const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   // Sync state with query parameter
   useEffect(() => {
@@ -178,20 +179,70 @@ function ProductsContent() {
         </div>
 
         {/* TABS CONTAINER */}
-        <div className="flex gap-2 flex-wrap justify-center py-2 border-b border-border-brand/20">
-          {Object.values(productData).map((tab) => (
+        <div className="space-y-3">
+          <div className="flex items-center gap-3 w-full border-b border-border-brand/20 py-2.5">
+            {/* Filter Pill (Button) */}
             <button
-              key={tab.id}
-              onClick={() => handleTabClick(tab.id)}
-              className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all border ${
-                activeCategory === tab.id
-                  ? "bg-red text-white border-red shadow-md"
-                  : "bg-white hover:bg-yellow-light/20 text-text border-border-brand/50 hover:border-red"
+              onClick={() => setIsFilterOpen(!isFilterOpen)}
+              className={`flex items-center gap-1.5 border px-4 py-2.5 rounded-full text-xs font-bold shadow-sm shrink-0 cursor-pointer transition-all duration-300 ${
+                isFilterOpen
+                  ? "bg-yellow text-dark border-yellow-dark"
+                  : "bg-white hover:bg-yellow-light/20 text-text border-border-brand/40"
               }`}
             >
-              {tab.name}
+              <Filter className={`w-3.5 h-3.5 transition-transform duration-300 ${isFilterOpen ? "rotate-180 text-dark" : "text-red"}`} />
+              <span>Filter</span>
             </button>
-          ))}
+
+            {/* Slideable Categories */}
+            <div className="flex gap-2 overflow-x-auto no-scrollbar py-1 scroll-smooth w-full select-none" style={{ WebkitOverflowScrolling: "touch" }}>
+              {Object.values(productData).map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => handleTabClick(tab.id)}
+                  className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all border shrink-0 ${
+                    activeCategory === tab.id
+                      ? "bg-red text-white border-red shadow-md"
+                      : "bg-white hover:bg-yellow-light/20 text-text border-border-brand/50 hover:border-red"
+                  }`}
+                >
+                  {tab.name}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* SLIDING FILTER DRAWER */}
+          <AnimatePresence>
+            {isFilterOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                className="overflow-hidden"
+              >
+                <div className="w-full bg-white border border-border-brand/35 rounded-2xl p-4.5 shadow-brand grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
+                  {Object.values(productData).map((cat) => (
+                    <button
+                      key={cat.id}
+                      onClick={() => {
+                        handleTabClick(cat.id);
+                        setIsFilterOpen(false);
+                      }}
+                      className={`flex flex-col items-center justify-center p-3.5 rounded-xl border text-center transition-all duration-300 hover:scale-102 cursor-pointer ${
+                        activeCategory === cat.id
+                          ? "bg-red text-white border-red shadow-md"
+                          : "bg-white hover:bg-yellow-light/20 text-text border-border-brand/40 hover:border-red"
+                      }`}
+                    >
+                      <span className="text-2xl mb-1.5 select-none">{cat.emojiFallback[0]}</span>
+                      <span className="text-xs font-bold">{cat.name}</span>
+                    </button>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* SHOWCASE SECTION */}
